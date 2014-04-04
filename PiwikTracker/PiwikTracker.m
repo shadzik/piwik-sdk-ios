@@ -737,7 +737,7 @@ inline NSString* customVariable(NSString* name, NSString* value) {
   if (events.count == 1)
   {
       self.requestSerializer = [AFHTTPRequestSerializer serializer];
-      request = [self.requestSerializer requestWithMethod:@"GET" URLString:@"piwik.php" parameters:[events objectAtIndex:0] error:nil];
+      request = [self.requestSerializer requestWithMethod:@"GET" URLString:[[NSURL URLWithString:@"piwik.php" relativeToURL:self.baseURL] absoluteString] parameters:[events objectAtIndex:0] error:nil];
   }
   else
   {
@@ -777,7 +777,7 @@ inline NSString* customVariable(NSString* name, NSString* value) {
     JSONParams[@"requests"] = queryStrings;
 //    DLog(@"Bulk request:\n%@", JSONParams);
     
-      request = [self.requestSerializer requestWithMethod:@"POST" URLString:@"piwik.php" parameters:JSONParams error:nil];
+      request = [self.requestSerializer requestWithMethod:@"POST" URLString:[[NSURL URLWithString:@"piwik.php" relativeToURL:self.baseURL] absoluteString] parameters:JSONParams error:nil];
     
   }
   
