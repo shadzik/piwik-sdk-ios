@@ -31,7 +31,7 @@
  
  All methods are asynchronous and will return immediately.
  */
-@interface PiwikTracker : AFHTTPClient
+@interface PiwikTracker : AFHTTPRequestOperationManager
 
 
 /**
